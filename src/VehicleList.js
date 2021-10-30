@@ -23,7 +23,7 @@ function VehicleList() {
     const handlePortal = (imageUrl, id) => {
         let newList = list.map(va => {
             if (va.id === id) {
-                return {...va,"imageUrl":URL.createObjectURL(imageUrl)}
+                return {...va,"imageUrl":imageUrl}
             }
             else
             {

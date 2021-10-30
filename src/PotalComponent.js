@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import './vehiclelists.css';
 import ReactDOM from 'react-dom';
 function PotalComponent({ handle, valu}) {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState('/assest/download.png');
     const handleSelection=(event)=>{
-        setSelectedImage(event.target.files[0])
-        alert('Image Selected');
+        setSelectedImage( URL.createObjectURL(event.target.files[0]));
     }
        return ReactDOM.createPortal(
         <div>
@@ -25,7 +24,9 @@ function PotalComponent({ handle, valu}) {
                                         <div className="cell small-12 medium-6">
                                             <button className="button" onClick={()=>handle(selectedImage,valu)}> Update </button>
                                         </div>
-                                        
+                                        <div className="cell small-12 medium-6">
+                                        <img alt="not fount" width={"250px"} src={selectedImage} />
+                                        </div>
                                     </div>
 
                                 </div>
